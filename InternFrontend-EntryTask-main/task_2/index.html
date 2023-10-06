@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Svelte + TS</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+    
+    <div class="main">
+      <p class="logo">Конвертация валюты</p>
+      <div class="one">
+        <label>Из - </label>
+        <select bind:value={fromCurrency} on:change={updateResult}>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="RUB">RUB</option>
+        </select>
+      </div>
+      <br>
+      <div class="two">
+        <label>В -</label>
+        <select bind:value={toCurrency} on:change={updateResult}>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="RUB">RUB</option>
+        </select>
+      </div>
+      <br>
+      <div>
+        <label>Сумма:</label>
+        <input type="number" step="1" bind:value={amount} on:input={updateResult} />
+      </div>
+      <div class="res">
+        <p class="res_p">Итого: {result.toFixed(2)}</p>
+      </div>
+    </div>
+  </body>
+</html>
